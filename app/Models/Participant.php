@@ -16,4 +16,9 @@ class Participant extends Model
         'email',
         'phone_number',
     ];
+
+    public function sessions()
+    {
+        return $this->hasMany(ParticipantSession::class);
+    }
 }
