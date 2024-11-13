@@ -11,6 +11,6 @@ export default defineConfig({
     build: {
       outDir: 'public/build',
     },
-    base: '/myapp/',  // Set base path if app is in a subdirectory
+   
   });
   
