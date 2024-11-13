@@ -11,8 +11,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    build: {
-        outDir: 'public/build',   // Ensure the output goes to the 'public/build' directory
-        manifest: true,           // Generate the manifest.json file required by Laravel
-    },
 });
