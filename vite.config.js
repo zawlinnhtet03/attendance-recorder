@@ -6,7 +6,7 @@ export default defineConfig({
         outDir: 'public/build',
         manifest: true,
       },
-    base: '/', 
+      base: '/build/',   
     plugins: [
         laravel({
             input: [
