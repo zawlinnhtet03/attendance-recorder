@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function generateQrCode()
     {
         // php artisan serve --host=192.168.1.x --port=8000
-        $qrData = 'http://192.168.1.7:8000/check-in-form';
+        $qrData = 'https://attendance-recorder-production.up.railway.app/check-in-form';
         return view('admin.qr-code', ['qrCode' => QrCode::size(250)->generate($qrData)]);
     }
 
@@ -33,7 +33,7 @@ class AdminController extends Controller
     {
         // Assuming you pass the participant's email or unique ID as a query parameter
         // $qrData = route('participant.out') . '?email=' . urlencode('participant_email@example.com');
-        $qrData = 'http://192.168.1.7:8000/check-out-form';
+        $qrData = 'https://attendance-recorder-production.up.railway.app/check-out-form';
         return view('admin.logout-qr-code', ['qrCode' => QrCode::size(250)->generate($qrData)]);
     }
 }
