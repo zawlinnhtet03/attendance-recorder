@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;  // Import Auth
 use App\Models\Participant;
 use App\Models\ParticipantSession;
-use Illuminate\Support\Facades\Session;
 
 class ParticipantController extends Controller
 {
@@ -15,10 +13,38 @@ class ParticipantController extends Controller
         return view('admin.check-in-form');
     }
 
-    public function showCheckoutForm()
+    public function showCheckOutForm()
     {
         return view('admin.check-out-form');
     }
+ 
+    public function showAskCheckIn()
+    {
+        return view('admin.ask-check-in');
+    }
+
+    public function showOnlyCheckOut()
+    {
+        return view('admin.only-check-out');
+    }
+
+    public function handleCheckInOrCheckOut(Request $request)
+    {
+        $request->validate([
+            'check_in_status' => 'required|in:yes,no',
+        ]);
+
+        $checkInStatus = $request->input('check_in_status');
+
+        if ($checkInStatus == 'yes') {
+            // If already checked in, redirect to the check-out form
+            return redirect()->route('participant.showCheckOutForm');
+        } else {
+            // If not checked in yet, redirect to the check-in form
+            return redirect()->route('participant.showOnlyCheckOut');
+        }
+    }
+
 
     public function store(Request $request)
     {
@@ -49,66 +75,76 @@ class ParticipantController extends Controller
         return redirect()->route('participant.success');
     }
 
-    public function logout(Request $request)
-{
-    // Validate email input
-    $request->validate([
-        'email' => 'required|email|exists:participants,email', // Check if email exists in the participants table
-    ]);
+    public function storeCheckOut(Request $request)
+    {
+        // Validate input
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'organization' => 'required|string|max:255',
+            'email' => 'required|email|unique:participants,email',
+            'phone_number' => [
+                'nullable',
+                'string',
+                'max:20',
+                'regex:/^\+?[0-9]{7,15}$/' // Example regex: allows optional "+" and 7-15 digits
+            ],
+        ]);
 
-    // Find the participant by their email
-    $participant = Participant::where('email', $request->input('email'))->first();
+        // Create a new participant record
+        $participant = Participant::create($request->all());  // Store the created participant
 
-    if ($participant) {
-        // Find the most recent session for this participant where check-out time is not set
-        $session = ParticipantSession::where('participant_id', $participant->id)
-            ->whereNull('check_out_time') // Only the session with no check-out time
-            ->latest() // Get the latest session
-            ->first();
+        // Create a new session for the participant, marking their check-in time
+        $participantSession = new ParticipantSession();
+        $participantSession->participant_id = $participant->id;  // Use the correct participant id
+        $participantSession->check_out_time = now();
+        $participantSession->save();
 
-        if ($session) {
-            // Update the check-out time
-            $session->check_out_time = now();
-            $session->save();
-
-            // Redirect to success page
-            return redirect()->route('participant.successCheckout');
-        } else {
-            return redirect()->route('participant.successCheckout')->with('error', 'No active session found for this participant.');
-        }
-    } else {
-        return redirect()->route('participant.successCheckout')->with('error', 'Participant not found.');
+        // Redirect to the success page
+        return redirect()->route('participant.successCheckOutOnly');
     }
-}
 
+    public function logout(Request $request)
+    {
+        // Validate email input
+        $request->validate([
+            'email' => 'required|email|exists:participants,email', // Check if email exists in the participants table
+        ]);
 
-    // public function logout(Request $request)
-    // {
-    //     $request->validate([
-    //         'email' => 'required|email|exists:participants,email',
-    //     ]);
-    
-    //     $participant = Participant::where('email', $request->email)->first();
-    
-    //     if ($participant) {
-    //         $session = ParticipantSession::where('participant_id', $participant->id)
-    //             ->whereNull('check_out_time')
-    //             ->latest()
-    //             ->first();
-    
-    //         if ($session) {
-    //             \Log::info('Session check-out triggered for participant:', ['id' => $participant->id]);
-                
-    //             $session->check_out_time = now();
-    //             $session->save();
-    
-    //             return redirect()->route('participant.successCheckout');
-    //         } else {
-    //             return redirect()->back()->with('error', 'No active session found for this participant.');
-    //         }
-    //     }
-    
-    //     return redirect()->back()->with('error', 'Participant not found.');
-    // }
-    
+        // Find the participant by their email
+        $participant = Participant::where('email', $request->input('email'))->first();
+
+        if ($participant) {
+            // Find the most recent session for this participant where check-out time is not set
+            $session = ParticipantSession::where('participant_id', $participant->id)
+                ->whereNull('check_out_time') // Only the session with no check-out time
+                ->latest() // Get the latest session
+                ->first();
+
+            if ($session) {
+                // Update the check-out time
+                $session->check_out_time = now();
+                $session->save();
+
+                // Redirect to success page
+                return redirect()->route('participant.successCheckout');
+            } else {
+                return redirect()->route('participant.successCheckout')->with('error', 'No active session found for this participant.');
+            }
+        } else {
+            return redirect()->route('participant.successCheckout')->with('error', 'Participant not found.');
+        }
+    }  
+
+    public function destroy($id)
+    {
+        // Find the participant by ID
+        $participant = Participant::findOrFail($id);
+
+        // Delete the participant
+        $participant->delete();
+
+        // Redirect back with a success message
+        return redirect()->route('participants.index')->with('success', 'Participant deleted successfully!');
+    }
 }

@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img src="{{ asset('images/logo3.svg') }}" class="h-16 w-auto">
                     </a>
                 </div>
 
@@ -28,13 +28,13 @@
                 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('admin.generateQrCode')" :active="request()->routeIs('admin.generateQrCode')">
-                        {{ __('Login QR Code') }}
+                        {{ __('Check-in QR Code') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('admin.generateLogoutQrCode')" :active="request()->routeIs('admin.generateLogoutQrCode')">
-                        {{ __('Log Out QR Code') }}
+                        {{ __('Check-out QR Code') }}
                     </x-nav-link>
                 </div>
 
