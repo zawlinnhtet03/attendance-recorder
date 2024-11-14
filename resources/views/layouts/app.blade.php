@@ -14,7 +14,7 @@
         <!-- <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"> -->
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['assets/app-CjRiPLFz.css', 'assets/app-BjCBnTiP.js'])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
