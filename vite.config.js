@@ -2,7 +2,7 @@ export default defineConfig({
     build: {
         outDir: 'public/build',
         manifest: true,
-        base: '/',  // Ensure this is set to '/' in production
+        base: process.env.NODE_ENV === 'production' ? '/' : '',  // Ensure this is set to '/' in production
     },
     plugins: [
         laravel({
