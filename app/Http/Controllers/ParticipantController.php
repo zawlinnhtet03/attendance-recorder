@@ -45,7 +45,6 @@ class ParticipantController extends Controller
         }
     }
 
-
     public function store(Request $request)
     {
         // Validate input
@@ -60,6 +59,11 @@ class ParticipantController extends Controller
                 'max:20',
                 'regex:/^\+?[0-9]{7,15}$/' // Example regex: allows optional "+" and 7-15 digits
             ],
+            'is_nuclear_medicine_member' => 'required|boolean', // For Yes/No field
+            'occupation_category' => 'nullable|string|max:255', // Occupation category, nullable
+            'license_number' => 'required|string|max:255', // License number, nullable
+            'is_medical_specialist_member' => 'required|boolean', // For Yes/No field
+            'work_registration_number' => 'nullable|string|max:255', // Work registration number, nullable
         ]);
 
         // Create a new participant record
@@ -89,6 +93,11 @@ class ParticipantController extends Controller
                 'max:20',
                 'regex:/^\+?[0-9]{7,15}$/' // Example regex: allows optional "+" and 7-15 digits
             ],
+            'is_nuclear_medicine_member' => 'required|boolean', // For Yes/No field
+            'occupation_category' => 'nullable|string|max:255', // Occupation category, nullable
+            'license_number' => 'required|string|max:255', // License number, nullable
+            'is_medical_specialist_member' => 'required|boolean', // For Yes/No field
+            'work_registration_number' => 'nullable|string|max:255', // Work registration number, nullable
         ]);
 
         // Create a new participant record
@@ -135,16 +144,4 @@ class ParticipantController extends Controller
             return redirect()->route('participant.successCheckout')->with('error', 'Participant not found.');
         }
     }  
-
-    public function destroy($id)
-    {
-        // Find the participant by ID
-        $participant = Participant::findOrFail($id);
-
-        // Delete the participant
-        $participant->delete();
-
-        // Redirect back with a success message
-        return redirect()->route('participants.index')->with('success', 'Participant deleted successfully!');
-    }
 }

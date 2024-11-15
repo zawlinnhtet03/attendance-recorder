@@ -10,11 +10,16 @@ class Participant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'organization',
-        'email',
-        'phone_number',
+        'first_name', 
+        'last_name', 
+        'organization', 
+        'email', 
+        'phone_number', 
+        'is_nuclear_medicine_member', 
+        'occupation_category', 
+        'license_number', 
+        'is_medical_specialist_member', 
+        'work_registration_number'
     ];
 
     public function sessions()
