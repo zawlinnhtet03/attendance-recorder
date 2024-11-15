@@ -48,7 +48,7 @@
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">
                                                         {{ $participant->is_medical_specialist_member ? '是' : '否' }}
                                                     </td>
-                                                    <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->organization }}</td>
+                                                    <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->organization ?? 'N/A'}}</td>
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->work_registration_number ?? 'N/A' }}</td>     
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->email }}</td>
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->phone_number?? 'N/A' }}</td>
@@ -103,7 +103,7 @@
                                                         <td class="text-sm px-3 py-2 border-b border-gray-300">
                                                             {{ $participant->is_medical_specialist_member ? '是' : '否' }}
                                                         </td>
-                                                        <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->organization }}</td>
+                                                        <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->organization ?? 'N/A' }}</td>
                                                         <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->work_registration_number ?? 'N/A' }}</td>     
                                                         <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->email }}</td>
                                                         <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->phone_number ?? 'N/A'}}</td>
@@ -158,7 +158,7 @@
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">
                                                         {{ $participant->is_medical_specialist_member ? '是' : '否' }}
                                                     </td>
-                                                    <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->organization }}</td>
+                                                    <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->organization ?? 'N/A'}}</td>
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->work_registration_number ?? 'N/A' }}</td>     
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->email }}</td>
                                                     <td class="text-sm px-3 py-2 border-b border-gray-300">{{ $participant->phone_number ?? 'N/A'}}</td>

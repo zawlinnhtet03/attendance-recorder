@@ -5,8 +5,8 @@
     <form method="POST" action="{{ route('participant.storeCheckOut') }}">
         @csrf
 
-<!-- First Name -->
-<div>
+        <!-- First Name -->
+        <div>
             <x-input-label for="first_name" :value="__('名字')" />
             <x-text-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus />
             <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
@@ -22,7 +22,7 @@
 
         <!-- Organization -->
         <div class="mt-4">
-            <x-input-label for="organization" :value="__('工作機構')" />
+            <x-input-label for="organization" :value="__('工作機構 (Optional)')" />
             <x-text-input id="organization" class="block mt-1 w-full" type="text" name="organization" :value="old('organization')" />
             <x-input-error :messages="$errors->get('organization')" class="mt-2" />
         </div>
@@ -67,8 +67,8 @@
 
         <!-- License Number -->
         <div class="mt-4">
-            <x-input-label for="license_number" :value="__('執照編號')" />
-            <x-text-input id="license_number" class="block mt-1 w-full" type="text" name="license_number" :value="old('license_number')" required />
+            <x-input-label for="license_number" :value="__('執照編號 (Optional)')" />
+            <x-text-input id="license_number" class="block mt-1 w-full" type="text" name="license_number" :value="old('license_number')"/>
             <x-input-error :messages="$errors->get('license_number')" class="mt-2" />
         </div>
 
@@ -91,8 +91,8 @@
 
         <!-- Work Registration Number -->
         <div class="mt-4">
-            <x-input-label for="work_registration_number" :value="__('單位工作登編號')" />
-            <x-text-input id="work_registration_number" class="block mt-1 w-full" type="text" name="work_registration_number" :value="old('work_registration_number')" required />
+            <x-input-label for="work_registration_number" :value="__('單位工作登編號 (Optional)')" />
+            <x-text-input id="work_registration_number" class="block mt-1 w-full" type="text" name="work_registration_number" :value="old('work_registration_number')"/>
             <x-input-error :messages="$errors->get('work_registration_number')" class="mt-2" />
         </div>
 

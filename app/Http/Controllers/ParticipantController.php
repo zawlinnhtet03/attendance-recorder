@@ -51,7 +51,7 @@ class ParticipantController extends Controller
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'organization' => 'required|string|max:255',
+            'organization' => 'nullable|string|max:255',
             'email' => 'required|email|unique:participants,email',
             'phone_number' => [
                 'nullable',
@@ -61,7 +61,7 @@ class ParticipantController extends Controller
             ],
             'is_nuclear_medicine_member' => 'required|boolean', // For Yes/No field
             'occupation_category' => 'nullable|string|max:255', // Occupation category, nullable
-            'license_number' => 'required|string|max:255', // License number, nullable
+            'license_number' => 'nullable|string|max:255', // License number, nullable
             'is_medical_specialist_member' => 'required|boolean', // For Yes/No field
             'work_registration_number' => 'nullable|string|max:255', // Work registration number, nullable
         ]);
@@ -85,7 +85,7 @@ class ParticipantController extends Controller
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'organization' => 'required|string|max:255',
+            'organization' => 'nullable|string|max:255',
             'email' => 'required|email|unique:participants,email',
             'phone_number' => [
                 'nullable',
@@ -95,7 +95,7 @@ class ParticipantController extends Controller
             ],
             'is_nuclear_medicine_member' => 'required|boolean', // For Yes/No field
             'occupation_category' => 'nullable|string|max:255', // Occupation category, nullable
-            'license_number' => 'required|string|max:255', // License number, nullable
+            'license_number' => 'nullable|string|max:255', // License number, nullable
             'is_medical_specialist_member' => 'required|boolean', // For Yes/No field
             'work_registration_number' => 'nullable|string|max:255', // Work registration number, nullable
         ]);
