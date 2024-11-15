@@ -44,6 +44,7 @@
         <!-- Membership of Nuclear Medicine Society -->
         <div class="mt-4">
             <x-input-label for="is_nuclear_medicine_member" :value="__('是否澳門核醫及分子影像學會會員?')" />
+            
             <div class="mt-2">
                 <label class="inline-flex items-center text-lg text-gray-800 dark:text-gray-200">
                     <input type="radio" name="is_nuclear_medicine_member" value="1" class="form-radio text-indigo-600" required>
