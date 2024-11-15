@@ -8,6 +8,10 @@
                     <a href="{{ route('dashboard') }}">
                         <img src="{{ asset('images/logo3.svg') }}" class="h-16 w-auto">
                     </a>
+                    <div class="text-container">
+                        <h1  style="font-size: 13px; font-weight: bold; color: white;"><i>2024澳門核醫及分子影像學會</i></h1>
+                        <h1  style="font-size: 13px; font-weight: bold; color: white;"><em>年度會員大會暨學術講座</em></h1>
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->

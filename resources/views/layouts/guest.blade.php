@@ -16,10 +16,14 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
                 <a href="/">
                     <img src="{{ asset('images/logo3.svg') }}" class="h-16 w-auto">
                 </a>
+                <div class="text-container"  style="text-align: center;">
+                    <h1  style="font-size: 13px; font-weight: bold; color: white;"><i>2024澳門核醫及分子影像學會</i></h1>
+                    <h1  style="font-size: 13px; font-weight: bold; color: white;"><em>年度會員大會暨學術講座</em></h1>
+                </div>
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
