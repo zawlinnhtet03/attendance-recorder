@@ -17,7 +17,7 @@ This system was designed for a specific event and is currently restricted for us
 
 ## Screenshots
 
-![Sample view of data collection](images/Screenshot.png)
+![Sample view of data collection](/assets/images/Screenshot.png)
 
 ## Technologies Used
 
@@ -28,8 +28,8 @@ This system was designed for a specific event and is currently restricted for us
 
 ### Disclaimer
 
-**Note**: This system requires admin permissions for usage, and access is controlled by the project owner. For questions or to request access, please contact [Zaw Linn Htet](zaw.linn.htet03@gmail.com).
+**Note**: This system requires admin permissions for usage, and access is controlled by the project owner. For questions or to request access, please contact [Zaw Linn Htet](mailto:zaw.linn.htet03@gmail.com).
 
 ### License
 
-This project, 2024 澳門核醫及分子影像學會年度會員大會暨學術講座 Check-In/Check-Out System, is proprietary software. The use, distribution, or modification of this software is strictly prohibited without prior permission from the author. For inquiries regarding usage permissions, please contact [Zaw Linn Htet](zaw.linn.htet03@gmail.com).
+This project, 2024 澳門核醫及分子影像學會年度會員大會暨學術講座 Check-In/Check-Out System, is proprietary software. The use, distribution, or modification of this software is strictly prohibited without prior permission from the author. For inquiries regarding usage permissions, please contact [Zaw Linn Htet](mailto:zaw.linn.htet03@gmail.com).
