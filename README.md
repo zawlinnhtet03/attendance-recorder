@@ -15,9 +15,9 @@ This project is a custom-built attendance recording system specifically created 
 
 This system was designed for a specific event and is currently restricted for use with admin permissions. If you wish to use or adapt this system for other events, please contact the author for permission and guidance.
 
-## Screenshots
+<!-- ## Screenshots
 
-![Sample view of data collection](public/assets/images/Screenshot.png)
+![Sample view of data collection](public/assets/images/Screenshot.png) -->
 
 ## Technologies Used
 
